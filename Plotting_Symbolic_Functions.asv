@@ -1,0 +1,32 @@
+%% Plotting Symbolic Functions
+%---------------- S.M. Rajkumar--------------------
+
+clc, clear
+
+%% using ezplot
+f = '5*cos(x)';
+figure(1)
+subplot(221)
+p = ezplot(f, [-15 5]); % [-15 5] is the range of x
+set(p, 'linewidth', 2.5)
+
+%% using fplot
+fy = @(y) 10*sin(y) + tan(y);
+figure(2)
+subplot(222)
+p = fplot(fy, [-10 10]);
+set(p, 'linewidth', 2.5)
+
+%% using fimplicit (fimplicit3 for 3d)
+fxyz = @(x,y,z) exp(x*y) + y*z - x*y^(3/4);
+figure(3)
+subplot(223)
+p = fimplicit3(fxyz);
+rotate3d on, axis image;
+
+%% polar plot
+fp = @(theta) 4*(1-sin(theta));
+figure(4)
+subplot(22)
+p =ezpolar(fp);
+
