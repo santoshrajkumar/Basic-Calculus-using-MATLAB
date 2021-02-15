@@ -4,10 +4,10 @@
 t0=0.1; % can take zero , but we took this as one of our history function has log(t)
 tf =5;
 
-%dde23 function
+%ddesd function
 sol = ddesd(@ddefunc, @delays, @yhist, [t0 tf]);
 
-%For getting solution from dde23 to plot
+%For getting solution from ddesd to plot
 t = linspace(t0,tf,100);
 y = deval(sol, t);
 
@@ -21,7 +21,7 @@ d = exp(1 - y(2));
 
 end
 
-%function defining the DDE yl = y(t-1)
+%function defining the DDE
 function yPrime = ddefunc(t, y, yl)
 
 yPrime = [y(2)
